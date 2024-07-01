@@ -53,6 +53,9 @@ do
 
         -- 定义新的 GetDate 函数
         local function GetDate(format, time)
+            if time then  -- 如果传入了自定义参数，则调用原API
+                return RawGetDate(format, time)
+            end
             -- 获取当前的实际时间戳
             local currentRunTime = convertToTimestamp(RawGetDate("*t"))
             
